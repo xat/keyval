@@ -2,9 +2,9 @@
 
   var keyval = function(cfg) {
 
-    cfg = extend(cfg, {
+    cfg = extend({
       engine: 'memory'
-    });
+    }, cfg);
 
     var data = {};
     var engine, api;
@@ -58,7 +58,6 @@
         this.each(function(val, key) {
           that.remove(key);
         });
-        data = {};
         save && this.save();
       },
 
@@ -72,7 +71,8 @@
         data = engine.restore();
         this.emit('load', data);
         this.each(function(val, key) {
-          that.set(key, val);
+          that.emit('add:' + key, data[key], key);
+          that.emit('add', data[key], key);
         });
       }
 
@@ -106,7 +106,7 @@
         },
 
         restore: function() {
-          return window.sessionStorage.getItem(cfg.name) || {};
+          return JSON.parse(window.sessionStorage.getItem(cfg.name)) || {};
         }
 
       };
@@ -124,7 +124,7 @@
         },
 
         restore: function() {
-          return window.localStorage.getItem(cfg.name) || {};
+          return JSON.parse(window.localStorage.getItem(cfg.name)) || {};
         }
 
       };
