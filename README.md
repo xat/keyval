@@ -8,7 +8,7 @@ evented key/value storage lib.
 
 var keyval = require('keyval');
 
-// storage can be 'local', 'session' or memory (default)
+// storage can be 'local', 'session' or 'memory' (default)
 // ..or you can specify your own storage function
 
 var store = keyval({ storage: 'local' });
@@ -32,17 +32,14 @@ store.on('remove:foo', function() {
 });
 
 store.remove('foo');
+
 ```
 
 ## Installation
 
-### npm
-
-```npm install query-extend```
-
 ### bower
 
-```bower install query-extend```
+```bower install keyval```
 
 
 ## License
