@@ -1,0 +1,29 @@
+{
+  "name": "keyval",
+  "version": "0.0.1",
+  "description": "evented key/value storage lib",
+  "main": "keyval.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xat/keyval"
+  },
+  "keywords": [
+    "hashmap"
+  ],
+  "author": "Simon Kusterer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xat/keyval/issues"
+  },
+  "homepage": "https://github.com/xat/keyval",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-uglify": "^0.3.1",
+    "mocha": "^1.21.3"
+  }
+}

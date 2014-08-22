@@ -1,0 +1,28 @@
+{
+  "name": "keyval",
+  "version": "0.0.1",
+  "homepage": "https://github.com/xat/keyval",
+  "authors": [
+    "Simon Kusterer <simon@sope.io>"
+  ],
+  "description": "evented key/value storage lib",
+  "main": "keyval.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "key",
+    "value",
+    "store",
+    "localstorage"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
