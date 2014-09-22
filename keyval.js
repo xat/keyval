@@ -7,6 +7,7 @@
     }, cfg);
 
     var data = {};
+    var count = 0;
     var engine, api;
 
     if (typeof cfg.engine == 'string') {
@@ -25,8 +26,8 @@
 
       set: function(key, val, save) {
         var event = this.has(key) ? 'update' : 'add';
-        this.emit(event + ':' + key, data[key], key);
-        this.emit(event, data[key], key);
+        this.emit(event + ':' + key, val, key);
+        this.emit(event, val, key);
         data[key] = val;
         save && this.save();
       },
@@ -40,6 +41,10 @@
         this.emit('remove', data[key], key);
         delete data[key];
         save && this.save();
+      },
+
+      count: function() {
+        return count;
       },
 
       each: function(fn) {
@@ -77,6 +82,11 @@
       }
 
     }, emitty);
+
+    // keep track of the number of entries
+    api.on('load', function() { count = 0; });
+    api.on('add', function() { count++; });
+    api.on('remove', function() { count--; });
 
     return api;
   };

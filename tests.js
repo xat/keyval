@@ -8,12 +8,14 @@ describe('keyval', function() {
 
     store.load();
 
-    store.on('set:foo', function(val, key) {
+    store.on('add:foo', function(val, key) {
       expect(key).to.be.equal('foo');
       expect(val).to.be.equal('bar');
     });
 
+    expect(store.count()).to.be.equal(0);
     store.set('foo', 'bar');
+    expect(store.count()).to.be.equal(1);
 
     expect(store.has('foo')).to.be.ok();
     expect(store.has('doesnotexist')).to.not.be.ok();
@@ -23,6 +25,9 @@ describe('keyval', function() {
     });
 
     store.remove('foo');
+
+    expect(store.count()).to.be.equal(0);
+
     expect(store.has('foo')).to.not.be.ok();
 
   });

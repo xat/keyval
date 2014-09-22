@@ -1,6 +1,6 @@
 {
   "name": "keyval",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "evented key/value storage lib",
   "main": "keyval.js",
   "scripts": {
